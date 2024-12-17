@@ -1,6 +1,6 @@
 <?php
     // Incluimos el controlador de las actas
-    $root = '/home/lisi4150/public_html/Bloque4/EvaluacionBloque3_JMVP/';
+    $root = '/home/lisi4150/public_html/generadorActasAPI-Rest/';
     require_once($root . 'controllers/controladorActas.php');
 
     // Capturamos el ID de la URL (pasado por GET).

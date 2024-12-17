@@ -1,6 +1,6 @@
 <!-- Inclusión de la plantilla Header -->
 <?php
-    $root = '/home/lisi4150/public_html/Bloque4/EvaluacionBloque3_JMVP/';
+    $root = '/home/lisi4150/public_html/generadorActasAPI-Rest/';
     include_once($root . 'views/templates/header.php');
 ?>
 <!-- Contenido principal -->

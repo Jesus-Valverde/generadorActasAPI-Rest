@@ -1,6 +1,6 @@
 <?php
 // Ruta raíz del servidor
-$root = '/home/lisi4150/public_html/Bloque4/EvaluacionBloque3_JMVP/';
+$root = '/home/lisi4150/public_html/generadorActasAPI-Rest/';
 require_once($root . 'models/modeloActas.php');
 
 /**

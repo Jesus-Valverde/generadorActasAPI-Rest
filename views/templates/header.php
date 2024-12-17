@@ -2,7 +2,7 @@
     // Obtener el archivo actual
     $archivoActual = basename($_SERVER['PHP_SELF']);
     // Ruta raíz del servidor
-    $root = '/home/lisi4150/public_html/Bloque4/EvaluacionBloque3_JMVP/';
+    $root = '/home/lisi4150/public_html/generadorActasAPI-Rest/';
 ?>
 
 <!DOCTYPE html>
