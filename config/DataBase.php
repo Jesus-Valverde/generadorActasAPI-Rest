@@ -15,17 +15,22 @@ class DataBase {
     /**
      * @var string $db Nombre de la base de datos.
      */
-    private $db = "lisi4150_oficina";
+    private $db_name = "lisi4150_oficina";
      
     /**
      * @var string $user Nombre de usuario para la conexión a la base de datos.
      */
-    private $user = "lisi4150";
+    private $username = "lisi4150";
 
     /**
      * @var string $password Contraseña del usuario para la conexión a la base de datos.
      */
     private $password = "lisi4150";
+
+    /**
+     * @var PDO $conn Objeto PDO para manejar la conexión a la base de datos.
+     */
+    public $conn;
 
     /**
      * Constructor de la clase DataBase.
@@ -43,20 +48,25 @@ class DataBase {
      * almacenadas en las propiedades de la clase. Si la conexión es exitosa, devuelve
      * una instancia de la clase PDO. Si ocurre un error, devuelve un mensaje de error.
      *
-     * @return PDO|string Devuelve una instancia de PDO si la conexión es exitosa,
-     *                    o un mensaje de error en caso contrario.
+     * @return PDO|null Devuelve una instancia de PDO si la conexión es exitosa, o un mensaje de error en caso contrario.
      */
     public function connect() {
+        $this->conn = null;
         try {
-            // Intentar la conexión a la base de datos.
-            $PDO = new PDO("mysql:host=".$this->host.";dbname=".$this->db, $this->user, $this->password);
-            // Configurar el manejo de errores de PDO.
-            $PDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            return $PDO;
-        } catch (PDOException $e) {
-            // En caso de error, devolver el mensaje de excepción.
-            return "Error de conexión: " . $e->getMessage();
+            $this->conn = new PDO(
+                "mysql:host=" . $this->host . ";
+                dbname=" . $this->db_name,
+                $this->username,
+                $this->password
+            );
+            // Configurar el conjunto de caracteres
+            $this->conn->exec("SET NAMES 'utf8mb4'");
+        } catch (PDOException $exception) {
+            // Manejo de errores de conexión
+            echo "Error al conectar a la base de datos: " . $exception->getMessage();
         }
+
+        return $this->conn;
     }
 }
 ?>
